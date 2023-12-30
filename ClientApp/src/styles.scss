@@ -1,0 +1,152 @@
+@use '@angular/material' as mat;
+@use '@ng-matero/extensions' as mtx;
+$my-primary: mat.define-palette(mat.$cyan-palette);
+$my-accent: mat.define-palette(mat.$pink-palette);
+$my-warn: mat.define-palette(mat.$red-palette);
+$my-theme: mat.define-light-theme((color: (primary: $my-primary,
+        accent: $my-accent,
+        warn: $my-warn,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0,
+    ));
+@include mtx.all-component-themes($my-theme);
+@import "~simplebar/dist/simplebar.css";
+@import "~highlight.js/styles/androidstudio.css";
+@import 'ngx-toastr/toastr';
+@import "ngx-spinner/animations/ball-spin-clockwise-fade.css";
+// Vex Core
+@import "./@vex/styles/core";
+//@import "~@ng-select/ng-select/themes/material.theme.css";
+@import "assets/css/bootstrap.min.css";
+@import "./style/root.scss";
+
+:root {
+  --color-primary: #006778;
+
+  .style-success {
+    color: white;
+    background-color: #4CAF50;
+  }
+
+  .style-success .mat-simple-snackbar-action {
+    color: white;
+  }
+
+  .style-error {
+    color: white;
+    background-color: rgba(var(--color-warn), 1);
+  }
+
+  .style-error .mat-simple-snackbar-action {
+    color: white;
+  }
+
+  .style-warning {
+    color: white;
+    background-color: #ff8400;
+  }
+
+  .style-warning .mat-simple-snackbar-action {
+    color: white;
+  }
+}
+
+.mat-form-field-required-marker {
+  color: #A94442;
+}
+
+.divider {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  opacity: 0.4;
+  background-color: #ffffff;
+  width: 100%;
+  border-top: 1.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.mat-dialog-container {
+  height: auto !important;
+}
+
+.mat-form-field-underline {
+  position: initial !important;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  white-space: normal !important;
+}
+
+.mat-header-cell,
+.mat-sort-header-arrow,
+.mat-sort-header-indicator {
+  color: black;
+  font-weight: bold;
+}
+
+mat-tree-node {
+  .mat-checkbox {
+    top: 3px;
+    position: relative;
+    right: 10px;
+  }
+
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #338593 !important;
+  }
+}
+
+.ngx-datatable.material .datatable-header {
+  height: auto !important;
+}
+
+.ngx-datatable .datatable-header .datatable-header-cell .datatable-header-cell-template-wrap {
+  white-space: normal !important;
+}
+
+.mat-dialog-container:has(.popup-container) {
+  padding: 0;
+
+  .popup-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #006778;
+    justify-content: space-between;
+
+    h3 {
+      font-size: 17px;
+      font-weight: bold;
+      color: #FFFFFF;
+    }
+  }
+
+  .popup-content {
+    padding: .75rem;
+    margin: 0;
+  }
+
+  .popup-footer {
+    align-items: center;
+    margin: 0;
+    border-top: 1px solid #006778;
+    min-height: unset;
+    justify-content: center;
+    gap: 5px;
+    padding: 8px;
+
+    button {
+      padding: 7px 15px;
+    }
+
+    &[align=end] {
+      justify-content: flex-end;
+    }
+
+    &[align=between] {
+      justify-content: space-between;
+    }
+  }
+}

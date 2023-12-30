@@ -1,0 +1,51 @@
+<div class="popup-header">
+  <h3>{{!defaults?.id ? 'Thêm mới' : 'Chỉnh sửa'}} danh mục</h3>
+  <button type="button" tabindex="-1" mat-dialog-close>
+    <icon-close></icon-close>
+  </button>
+</div>
+
+<form (submit)="onSubmit()" [formGroup]="form!">
+  <mat-dialog-content class="popup-content p-3">
+    <input-component [control]="f?.code" controlName="code" [required]="true" requiredText="Mã không được bỏ trống!"
+      label="Mã danh mục" class="mt-2"></input-component>
+
+    <input-component [control]="f?.title" controlName="title" [required]="true"
+      requiredText="Tiêu đề không được bỏ trống!" label="Tiêu đề" class="mt-2"></input-component>
+
+    <input-component [control]="f?.slug" controlName="slug" label="Đường dẫn" [readonly]="true"
+      class="mt-2"></input-component>
+
+    <input-component [control]="f?.positionIndex" controlName="positionIndex" label="Thứ tự hiển thị" type="number"
+      class="mt-2"></input-component>
+
+    <input-component [control]="f?.description" controlName="description" label="Mô tả" [textArea]="true"
+      class="mt-2"></input-component>
+
+    <div class="flex items-center gap-4 mt-2">
+      <label class="m-0 flex items-center gap-1 cursor-pointer w-1/2">
+        <input formControlName="isActive" type="checkbox" />
+        Sử dụng
+      </label>
+
+      <label class="m-0 flex items-center gap-1 cursor-pointer">
+        <input formControlName="showHomePage" type="checkbox" />
+        Hiện thị trang chủ
+      </label>
+    </div>
+
+    <label class="mt-1 flex items-center gap-1 cursor-pointer">
+      <input type="checkbox" formControlName="displayType" (change)="onChangeDisplay($event)" />
+      Hiển thị background image bài viết
+    </label>
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="popup-footer" align="end">
+    <button type="submit" class="btn-container">
+      Lưu
+    </button>
+    <button type="button" class="btn-container" color="second" mat-dialog-close>
+      Hủy
+    </button>
+  </mat-dialog-actions>
+</form>

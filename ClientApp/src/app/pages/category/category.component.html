@@ -1,0 +1,46 @@
+<globits-breadcrumbs [crumbs]="breadcrumbs"></globits-breadcrumbs>
+
+<section class="p-3">
+    <form [formGroup]="searchForm!" (ngSubmit)="submitSearch()" class="bg-white rounded-sm p-3">
+        <h2><strong>Danh sách danh mục</strong></h2>
+
+        <div class="flex items-center justify-end gap-1">
+            <input-component class="input-search-container w-1/4" formControlName="text" id="text" name="text"
+                placeholder="Từ khóa..."></input-component>
+
+            <button class="btn-container" type="submit">
+                <icon-search></icon-search>
+                Tìm kiếm
+            </button>
+
+            <button type="button" class="btn-container" (click)="openFormCreateOrEditCategory()">
+                <icon-plus></icon-plus>
+                Tạo mới
+            </button>
+
+            <a *ngIf="categoryParent" class="btn-container"
+                [routerLink]="'/admin/category' + (categoryParent.parent?.id ? ('/' + categoryParent.parent?.id) : '') ">
+                <icon-keyboard-backspace></icon-keyboard-backspace>
+                Quay lại
+            </a>
+        </div>
+
+        <table-component class="mt-2" [rows]="pageCategory?.content || []" [columns]="columns"
+            [totalElements]="pageCategory?.totalElements" (change)="setPage($event)"
+            [pageIndex]="searchObject.pageIndex" [pageSize]="searchObject.pageSize">
+
+            <ng-template let-row item-html-table="button">
+                <a type="button" [routerLink]="'/admin/category/' + row?.id" matTooltip="Chi tiết">
+                    <icon-eyes></icon-eyes>
+                </a>
+                <button type="button" class="ml-2" (click)="openFormCreateOrEditCategory(row?.id)"
+                    matTooltip="Chỉnh sửa">
+                    <icon-edits></icon-edits>
+                </button>
+                <button type="button" class="ml-2" (click)="handleDeleteCategory(row.id)" matTooltip="Xóa">
+                    <icon-delete></icon-delete>
+                </button>
+            </ng-template>
+        </table-component>
+    </form>
+</section>

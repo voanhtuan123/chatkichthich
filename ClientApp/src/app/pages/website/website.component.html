@@ -1,0 +1,49 @@
+<globits-breadcrumbs [crumbs]="breadcrumbs"></globits-breadcrumbs>
+
+<section class="p-3">
+    <h2>
+        <strong>Danh sách Website</strong>
+    </h2>
+    <form [formGroup]="searchForm!" (ngSubmit)="submitSearch()">
+        <grid [spacing]="2" [container]="true">
+            <grid class="flex items-center gap-1">
+                <input class="input-search-container" formControlName="text" id="text" name="text"
+                    placeholder="Tìm kiếm..." />
+
+                <button class="btn-container" type="submit">
+                    <icon-search></icon-search>
+                    Tìm kiếm
+                </button>
+
+                <button type="button" class="btn-container" (click)="openFormCreateOrEditWebsite()">
+                    <icon-plus></icon-plus>
+                    Tạo mới
+                </button>
+
+                <button *ngIf="websiteParent" class="btn-container"(click)="toRouter(websiteParent?.parent?.id)">
+                    <icon-keyboard-backspace></icon-keyboard-backspace>
+                    Quay lại
+                </button>
+            </grid>
+
+            <grid class="flex items-center">
+                <table-component [rows]="pageWebsite?.content || []" [columns]="columns"
+                    [totalElements]="pageWebsite?.totalElements" (change)="setPage($event)"
+                    [pageIndex]="searchObject.pageIndex" [pageSize]="searchObject.pageSize">
+
+                    <ng-template let-row item-html-table="button">
+                        <button type="button" (click)="toRouter(row?.id)" matTooltip="Chi tiết">
+                            <icon-eyes></icon-eyes>
+                        </button>
+                        <button type="button" class="ml-2" (click)="openFormCreateOrEditWebsite(row?.id)" matTooltip="Chỉnh sửa">
+                            <icon-edits></icon-edits>
+                        </button>
+                        <button type="button" class="ml-2" (click)="handleDeleteWebsite(row.id)" matTooltip="Xóa">
+                            <icon-delete></icon-delete>
+                        </button>
+                    </ng-template>
+                </table-component>
+            </grid>
+        </grid>
+    </form>
+</section>

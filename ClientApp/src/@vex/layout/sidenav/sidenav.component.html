@@ -1,0 +1,11 @@
+<div (mouseenter)="collapseOpenSidenav()" (mouseleave)="collapseCloseSidenav()" [class.collapsed]="collapsed" [class.open]="collapsed && collapsedOpen$ | async" class="sidenav flex flex-col">
+  <div class="sidenav-toolbar">
+      <img [src]="imageUrl$ | async" alt="Logo" class="w-6 select-none flex-none side-nav-logo" style="zoom: 1.5" />
+      <h5 class="vex-sidenav-toolbar__headline"><button (click)="clickHome()">{{ title }}</button></h5>
+  </div>
+
+  <vex-scrollbar class="flex-1 flex flex-col list-sidenav-item">
+    <vex-sidenav-item *ngFor="let item of items; trackBy: trackByRoute" [item]="item" [level]="0"
+      [collapsed]="collapsed"></vex-sidenav-item>
+  </vex-scrollbar>
+</div>

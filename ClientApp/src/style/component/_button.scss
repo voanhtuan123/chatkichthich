@@ -1,0 +1,23 @@
+.btn-container:is(button, a) {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  color: $color-white;
+  background-color: $color-primary;
+  font-size: 1rem;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $color-primary-hover;
+  }
+
+  &[color="second"] {
+    background-color: $color-second;
+
+    &:hover {
+      background-color: $color-second-hover;
+    }
+  }
+}
