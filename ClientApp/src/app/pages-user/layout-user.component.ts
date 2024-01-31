@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { HomePage } from "src/app/_models/HomePage.model";
+import { ConfigService } from "src/@vex/config/config.service";
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: "layout-user",
@@ -8,7 +9,11 @@ import { HomePage } from "src/app/_models/HomePage.model";
   },
   template: `
     <header class="flex items-center justify-between py-2 container">
-      <h4><a [routerLink]="['/login']">Login</a></h4>
+      <h4>
+        <a [routerLink]="['/login']">
+          <img [src]="imageUrl$ | async" alt="Logo" class="w-6 select-none flex-none side-nav-logo" style="zoom: 1.5; height: 25px !important; width: 35px !important; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;" />
+        </a>
+      </h4>
       <div class="flex items-center" style="background-color: #D9D9D9;">
         <input id="text"  name="text" placeholder="Search" class="p-2" style="background-color: #D9D9D9;"/>
         <span style="border-left: 1px solid #000000;" class="p-1">
@@ -68,5 +73,7 @@ import { HomePage } from "src/app/_models/HomePage.model";
   `,
 })
 export class LayoutUserComponent {
-  constructor() {}
+  imageUrl$ = this.configService.config$.pipe(map(config => config.sidenav.imageUrl));
+
+  constructor(private configService: ConfigService,) {}
 }

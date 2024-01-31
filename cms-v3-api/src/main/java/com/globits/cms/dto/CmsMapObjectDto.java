@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 
 import com.globits.cms.domain.CmsMapObject;
 
-public class CmsMapObjectDto extends BaseObjectDto{
+public class CmsMapObjectDto extends BaseObjectDto {
 	private String slug;
 	private String objectType;
 	private UUID objectId;
