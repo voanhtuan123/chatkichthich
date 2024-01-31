@@ -11,22 +11,6 @@
   <span class="flex-1"></span>
 
   <div class="-mx-1 flex items-center">
-    <div class="px-1">
-      <div class="vex-sidenav-user__container flex-none">
-        <div #userProfileMenuOriginRef (click)="openProfileMenu(userProfileMenuOriginRef,1)"
-          [class.vex-sidenav-user--open]="userMenuOpen$ | async" class="vex-sidenav-user flex items-center" matRipple
-          matRippleColor="var(--sidenav-item-ripple-color)">
-          <div class="vex-sidenav-user__content flex-auto">
-            <div class="vex-sidenav-user__title"><mat-icon style="position: relative; top: 5px;">help_outline</mat-icon> Thông tin trợ giúp</div>
-          </div>
-          <mat-icon class="vex-sidenav-user__dropdown-icon flex-none" style="position: relative; top: 5px;" svgIcon="mat:arrow_drop_down"></mat-icon>
-        </div>
-      </div>
-    </div>
-
-    <div class="px-1">
-      <vex-toolbar-notifications></vex-toolbar-notifications>
-    </div>
 
     <div class="px-1">
       <div class="vex-sidenav-user__container flex-none">
@@ -44,18 +28,6 @@
     <div *ngIf="userVisible$ | async" class="px-1">
       <vex-toolbar-user></vex-toolbar-user>
     </div>
-
-    <mat-menu #languageMenu="matMenu" overlapTrigger="false" xPosition="before" yPosition="below">
-      <button mat-menu-item>
-        <mat-icon svgIcon="flag:united-states"></mat-icon>
-        <span>English</span>
-      </button>
-
-      <button mat-menu-item>
-        <mat-icon svgIcon="flag:germany"></mat-icon>
-        <span>German</span>
-      </button>
-    </mat-menu>
   </div>
 </div>
 
