@@ -31,6 +31,5 @@ export class CustomLayoutComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    document.title = "CMS";
   }
 }
