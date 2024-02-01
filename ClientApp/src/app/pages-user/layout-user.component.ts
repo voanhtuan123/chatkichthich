@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
     <header class="flex items-center justify-between py-2 container">
       <h4>
         <a [routerLink]="['/']">
-          <img [src]="imageUrl$ | async" alt="Logo" class="flex-none side-nav-logo" />
+          <img [src]="imageUrl$ | async" alt="Logo" class="flex-none side-nav-logo" style="height: 90px !important; width: auto !important;" />
         </a>
       </h4>
       <div class="flex items-center" style="background-color: #D9D9D9;">
@@ -69,7 +69,7 @@ import { map } from 'rxjs/operators';
         </p>
       </div>
        <h3 class="text-end">
-          <img [src]="imageUrl$ | async" alt="Logo" class="flex-none side-nav-logo" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;" />
+          <img [src]="imageUrl$ | async" alt="Logo" class="flex-none side-nav-logo" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; height: 50px !important; width: auto !important;" />
         </h3>
     </footer>
   `,
