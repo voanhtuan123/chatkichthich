@@ -15,7 +15,7 @@ export class SidenavComponent implements OnInit {
 
   @Input() collapsed: boolean;
   @Input() items = this.navigationService.items;
-  @Input() title = 'CMS';
+  @Input() title = 'RASA';
 
   collapsedOpen$ = this.layoutService.sidenavCollapsedOpen$;
   imageUrl$ = this.configService.config$.pipe(map(config => config.sidenav.imageUrl));
