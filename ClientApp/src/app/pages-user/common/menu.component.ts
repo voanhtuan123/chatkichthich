@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
   selector: "menu",
   template: `
    <div class="max-w-full overflow-x-auto overflow-y-hidden">
-      <div class="w-max">
+      <div class="w-max m-auto">
         <ng-container [ngTemplateOutlet]="Menu"[ngTemplateOutletContext]="{ row: listMenuHeader, level: 1 }">
         </ng-container>
       </div>
