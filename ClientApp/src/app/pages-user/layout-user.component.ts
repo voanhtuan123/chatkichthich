@@ -10,8 +10,8 @@ import { map } from 'rxjs/operators';
   template: `
     <header class="flex items-center justify-between py-2 container">
       <h4>
-        <a [routerLink]="['/login']">
-          <img [src]="imageUrl$ | async" alt="Logo" class="w-6 select-none flex-none side-nav-logo" style="zoom: 1.5; height: 25px !important; width: 35px !important; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;" />
+        <a [routerLink]="['/']">
+          <img [src]="imageUrl$ | async" alt="Logo" class="flex-none side-nav-logo" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;" />
         </a>
       </h4>
       <div class="flex items-center" style="background-color: #D9D9D9;">
@@ -68,7 +68,9 @@ import { map } from 'rxjs/operators';
           </svg>
         </p>
       </div>
-      <h3 class="text-end"><b>LOGO</b></h3>
+       <h3 class="text-end">
+          <img [src]="imageUrl$ | async" alt="Logo" class="flex-none side-nav-logo" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;" />
+        </h3>
     </footer>
   `,
 })
