@@ -7,12 +7,8 @@ import { Router } from "@angular/router";
 @Component({
   selector: "menu",
   template: `
-   <div class="max-w-full overflow-x-auto overflow-y-hidden">
-      <div class="w-max m-auto">
-        <ng-container [ngTemplateOutlet]="Menu"[ngTemplateOutletContext]="{ row: listMenuHeader, level: 1 }">
-        </ng-container>
-      </div>
-    </div>
+    <ng-container [ngTemplateOutlet]="Menu"[ngTemplateOutletContext]="{ row: listMenuHeader, level: 1 }">
+    </ng-container>
 
     <ng-template #Menu let-level="level" let-row="row">
       <ul class="{{ level === 1 ? 'menu' : 'sub-menu' }}">
